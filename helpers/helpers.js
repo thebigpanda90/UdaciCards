@@ -44,13 +44,14 @@ export function setLocalNotification() {
         console.log("der");
         if (status === "granted") {
           Notifications.cancelAllScheduledNotificationsAsync();
-          var tomorrow = new Date();
-          console.log(tomorrow);
-          tomorrow.setSeconds(tomorrow.getSeconds() + 10);
-          console.log(tomorrow);
 
-          Notifications.scheduleLocalNotificationAsync(createNotification,  {
-            title: "Study Time",
+          let tomorrow = new Date();
+          tomorrow.setDate(tomorrow.getDate() + 1);
+          tomorrow.setHours(20);
+          tomorrow.setMinutes(0);
+
+          Notifications.scheduleLocalNotificationAsync(createNotification(),
+          {
             time: tomorrow,
             repeat: "day"
           });

@@ -9,7 +9,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducers'
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import {setLocalNotification, clearLocalNotification} from './helpers/helpers';
+import {setLocalNotification} from './helpers/helpers';
 
 const Stack = createStackNavigator({
   Home: {
