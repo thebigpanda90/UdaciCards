@@ -42,8 +42,7 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    //clearLocalNotification();
-    //setLocalNotification();
+    setLocalNotification();
   }
 
   render() {
