@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
+import {setLocalNotification, clearLocalNotification} from '../helpers/helpers';
 
 class Quiz extends React.Component {
 	static navigationOptions = {
@@ -19,15 +20,22 @@ class Quiz extends React.Component {
 		});
 	}
 
+	resetLocalNotificationReminder = () => {
+		clearLocalNotification()
+		.then(setLocalNotification);
+	}
+
 	startQuizOver = () => {
 		this.setState({
 			questionIndex: 0,
 			numberCorrect: 0,
 			showAnswer: false
 		});
+		this.resetLocalNotificationReminder();
 	}
 
 	backToDeck = () => {
+		this.resetLocalNotificationReminder();
 		this.props.navigation.navigate('Deck', {deckName: this.props.deck.title});
 	}
 

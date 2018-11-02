@@ -46,12 +46,12 @@ export function setLocalNotification() {
           Notifications.cancelAllScheduledNotificationsAsync();
           var tomorrow = new Date();
           console.log(tomorrow);
-          tomorrow.setMinutes(20);
+          tomorrow.setSeconds(tomorrow.getSeconds() + 10);
           console.log(tomorrow);
 
           Notifications.scheduleLocalNotificationAsync(createNotification,  {
             title: "Study Time",
-            time: "tomorrow",
+            time: tomorrow,
             repeat: "day"
           });
         }
